@@ -75,7 +75,7 @@ async def download_source():
             if any(part in ZIP_EXCLUDE for part in rel.parts) or not path.is_file() or path.name == ".env":
                 continue
             zf.write(path, f"bitlora-pro/{rel}")
-        zf.writestr("bitlora-pro/backend/.env.example", "MONGO_URL=mongodb://localhost:27017\nDB_NAME=bitlora\nCORS_ORIGINS=http://localhost:3000\nJWT_SECRET=\nADMIN_EMAIL=\nADMIN_PASSWORD=\nDEMO_EMAIL=\nDEMO_PASSWORD=\nEMERGENT_EMAIL_KEY=\nEMAIL_FROM_NAME=Bitlora Pro\nFRONTEND_URL=http://localhost:3000\n")
+        zf.writestr("bitlora-pro/backend/.env.example", "MONGO_URL=mongodb://localhost:27017\nDB_NAME=bitlora\nCORS_ORIGINS=http://localhost:3000\nJWT_SECRET=\nADMIN_EMAIL=\nADMIN_PASSWORD=\nDEMO_EMAIL=\nDEMO_PASSWORD=\nBITLORA_EMAIL_KEY=\nEMAIL_FROM_NAME=Bitlora Pro\nFRONTEND_URL=http://localhost:3000\n")
         zf.writestr("bitlora-pro/frontend/.env.example", "REACT_APP_BACKEND_URL=http://localhost:8001\n")
     buf.seek(0)
     return StreamingResponse(buf, media_type="application/zip", headers={"Content-Disposition": "attachment; filename=bitlora-pro-source.zip"})

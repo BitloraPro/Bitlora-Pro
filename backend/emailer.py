@@ -11,7 +11,7 @@ from fastapi import HTTPException
 
 logger = logging.getLogger("email")
 EMAIL_BASE_URL = "https://integrations.emergentagent.com"
-EMAIL_KEY = os.environ["EMERGENT_EMAIL_KEY"]
+EMAIL_KEY = os.environ["BITLORA_EMAIL_KEY"]
 EMAIL_FROM_NAME = os.environ["EMAIL_FROM_NAME"]
 EMAIL_REPLY_TO = os.environ.get("EMAIL_REPLY_TO")
 FRONTEND_URL = os.environ["FRONTEND_URL"].rstrip("/")

@@ -13,7 +13,7 @@ Requirements: Python 3.11+, Node 18+, Yarn 1.x, MongoDB 6+
 ```bash
 # backend
 cd backend
-cp .env.example .env        # fill JWT_SECRET, ADMIN_*, DEMO_* (EMERGENT_EMAIL_KEY is optional, see below)
+cp .env.example .env        # fill JWT_SECRET, ADMIN_*, DEMO_* (BITLORA_EMAIL_KEY is optional, see below)
 pip install -r requirements.txt
 uvicorn server:app --host 0.0.0.0 --port 8001 --reload
 
