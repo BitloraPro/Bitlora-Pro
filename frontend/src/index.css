@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 222 39% 7%;
+        --foreground: 210 20% 98%;
+        --card: 221 39% 11%;
+        --card-foreground: 210 20% 98%;
+        --popover: 221 39% 11%;
+        --popover-foreground: 210 20% 98%;
+        --primary: 38 92% 50%;
+        --primary-foreground: 222 39% 7%;
+        --secondary: 215 28% 17%;
+        --secondary-foreground: 210 20% 98%;
+        --muted: 215 28% 17%;
+        --muted-foreground: 218 11% 65%;
+        --accent: 215 28% 17%;
+        --accent-foreground: 210 20% 98%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 210 20% 98%;
+        --border: 215 28% 17%;
+        --input: 215 28% 17%;
+        --ring: 38 92% 50%;
+        --radius: 0.6rem;
+        --chart-1: 38 92% 50%;
+        --chart-2: 160 84% 39%;
+        --chart-3: 0 84% 60%;
+        --chart-4: 217 91% 60%;
+        --chart-5: 270 70% 60%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html, body {
+        background: #0b0f19;
+    }
+    body {
+        @apply text-foreground;
+        margin: 0;
+        font-family: "Outfit", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+    ::selection {
+        background: rgba(245, 158, 11, 0.35);
+    }
+}
+
+@layer components {
+    .font-num { font-family: "JetBrains Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+    .panel { @apply bg-[#111827] border border-[#1f2937] rounded-xl; }
+    .panel-flat { @apply bg-[#0f1523] border border-[#1a2232]; }
+    .text-up { color: #10b981; }
+    .text-down { color: #ef4444; }
+    .bg-up { background: rgba(16, 185, 129, 0.12); }
+    .bg-down { background: rgba(239, 68, 68, 0.12); }
+    .btn-orange { @apply bg-[#f59e0b] text-[#0b0f19] font-semibold hover:bg-[#fbbf24] active:scale-[0.98]; transition: background-color .2s, transform .1s; }
+    .btn-ghost { @apply border border-[#374151] text-gray-100 hover:border-[#f59e0b] hover:text-[#f59e0b]; transition: border-color .2s, color .2s; }
+    .input-dark { @apply bg-[#0f172a] border border-[#1f2937] rounded-lg text-sm text-gray-100 placeholder:text-gray-500 focus:outline-none focus:border-[#f59e0b]; transition: border-color .2s; }
+    .eyebrow { @apply text-[11px] uppercase tracking-[0.2em] text-gray-400; }
+    .tab-pill { @apply px-3 py-1.5 text-xs rounded-md text-gray-400 hover:text-gray-100; transition: color .2s, background-color .2s; }
+    .tab-pill-active { @apply bg-[#1f2937] text-white; }
+    .th { @apply text-[11px] font-medium text-gray-500 uppercase tracking-wider py-2 px-3 text-left whitespace-nowrap; }
+    .td { @apply py-2.5 px-3 text-sm whitespace-nowrap; }
+    .row-hover { @apply hover:bg-[#151d2e]; transition: background-color .15s; }
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 3px; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+.glow-orange { box-shadow: 0 0 40px -10px rgba(245, 158, 11, 0.55); }
+.grain::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .05;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+@keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.animate-ticker { animation: ticker-scroll 60s linear infinite; }
+.animate-ticker:hover { animation-play-state: paused; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.rise { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
+
+@keyframes flash-up { 0% { background: rgba(16,185,129,.25);} 100% { background: transparent; } }
+@keyframes flash-down { 0% { background: rgba(239,68,68,.25);} 100% { background: transparent; } }
+.flash-up { animation: flash-up .8s ease-out; }
+.flash-down { animation: flash-down .8s ease-out; }
+
+[data-debug-wrapper="true"] { display: contents !important; }

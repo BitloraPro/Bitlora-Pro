@@ -1,0 +1,95 @@
+{
+  "project_name": "Bitlora Pro",
+  "app_type": "hybrid_fullstack (Crypto Exchange + Mobile iPhone Frames + Enterprise Admin Dashboard)",
+  "design_archetype": "THE PERFORMANCE PRO / CYBER-FINTECH",
+  "color_palette": {
+    "background_main": "#0b0f19",
+    "background_card": "#111827",
+    "background_elevated": "#1f2937",
+    "background_input": "#0f172a",
+    "border_subtle": "#1f2937",
+    "border_prominent": "#374151",
+    "accent_orange": "#f59e0b",
+    "accent_orange_hover": "#d97706",
+    "bullish_green": "#10b981",
+    "bullish_green_bg": "rgba(16, 185, 129, 0.12)",
+    "bearish_red": "#ef4444",
+    "bearish_red_bg": "rgba(239, 68, 68, 0.12)",
+    "text_primary": "#f9fafb",
+    "text_secondary": "#9ca3af",
+    "text_muted": "#6b7280"
+  },
+  "typography": {
+    "font_family_heading": "Outfit, sans-serif",
+    "font_family_body": "Inter, sans-serif",
+    "font_family_mono": "JetBrains Mono, Roboto Mono, monospace",
+    "h1": "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight",
+    "h2": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight",
+    "h3": "text-xl sm:text-2xl font-semibold",
+    "h4": "text-lg font-medium",
+    "body": "text-sm text-gray-300 leading-relaxed",
+    "caption": "text-xs text-gray-400 font-mono"
+  },
+  "branding": {
+    "logo_mark": "Orange 'B' icon inside dark golden shield/hex badge",
+    "wordmark": "Bitlora <span class='text-[#f59e0b] font-bold'>Pro</span>",
+    "hero_image": "https://images.unsplash.com/photo-1732111816779-aeec50f788ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHw0fHxiaXRjb2luJTIwZ29sZGVuJTIwM2QlMjBnbG93aW5nJTIwZGFyayUyMGxhbmRzY2FwZSUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzkxNTI4NTkzfDA&ixlib=rb-4.1.0&q=85",
+    "crypto_mobile_bg": "https://images.unsplash.com/photo-1639389016105-2fb11199fb6b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwzfHxjcnlwdG8lMjBleGNoYW5nZSUyMHRyYWRpbmclMjBkYXJrJTIwbW9iaWxlJTIwcGhvbmUlMjBpbnRlcmZhY2UlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc5MTUyODU5M3ww&ixlib=rb-4.1.0&q=85"
+  },
+  "layout_modules": {
+    "navigation": "Top bar with Bitlora Pro logo, Live Crypto Ticker bar, Markets, Spot, Futures, Earn, Mobile Views switcher, Admin Toggle, Login/Register buttons, User profile avatar.",
+    "landing_page": {
+      "hero_section": "Dark mountain landscape background with glowing golden Bitcoin asset, high-impact headline, quick trade widget, 24h market metrics ribbon.",
+      "liquidity_stats": "4-column dark card grid with glowing numbers ($48.2B 24h Vol, 15M Active Traders, 0.001s Latency, 99.99% Uptime).",
+      "market_preview_table": "Top gainers, trending meme tokens, high-volume spot pairs with quick Buy/Sell links.",
+      "trust_badges": "SOC2 Certified, 1:1 Proof of Reserves (Merkle Tree verified), Insurance Fund $500M."
+    },
+    "spot_terminal": {
+      "layout": "Grid-based 4-pane terminal: Pair Header & Stats (left), Interactive Candlestick Chart with 1m/15m/1h/4h/1d timeframes (center), Asymmetric Depth Order Book with live green buy / red sell bars (right-top), Order Execution Panel with Limit/Market/Stop-Limit & 25%-100% balance slider (right-bottom), Bottom Open Orders / Trade History table."
+    },
+    "futures_terminal": {
+      "layout": "High-density derivatives terminal featuring Leverage Slider up to 20x, Cross/Isolated Margin Mode modal, Position Risk Gauge, Liquidation Estimator, Active Positions Table with TP/SL dialog and 1-Click Close."
+    },
+    "markets_overview": {
+      "tabs": ["All Crypto", "Spot", "Futures Perps", "Meme Hub", "Top Gainers", "24h Volume"],
+      "features": "Search bar, sorting by Price/24h Change/Volume, SVG Sparkline mini-charts for each asset."
+    },
+    "user_account_settings": {
+      "sections": ["Profile & KYC Level", "Security & 2FA (Google Authenticator / YubiKey)", "API Key Management (Permissions & IP Whitelist)", "VIP Tier Progress Bar (VIP 0 to VIP 9 based on 30d volume)"]
+    },
+    "enterprise_admin_panel": {
+      "dashboard_kpi": ["Total Users (1.42M)", "24h Spot Vol ($12.4B)", "24h Futures Vol ($35.8B)", "Cold Storage Reserve ($4.2B)", "System Health (100% Operational)"],
+      "sections": [
+        "User Management & KYC Approval Queue (Review documents, Approve/Reject)",
+        "Wallet Treasury (Hot vs Cold split, Pending Withdrawal Approval Queue)",
+        "Futures & Liquidation Risk Monitoring Center",
+        "Security Audit & System Config Logs"
+      ]
+    },
+    "mobile_app_frames": {
+      "bezel_style": "Realistic iPhone 15 Pro titanium dark frame with notch/dynamic island, status bar, and smooth view switcher.",
+      "screens": [
+        "1. Welcome & Onboarding",
+        "2. Home Screen (Markets ticker, Quick Deposit/Withdraw)",
+        "3. Markets Screen (Tabs: Spot, Futures, Meme, Gainers + sparklines)",
+        "4. Spot Trade Screen (Candlestick chart preview, depth book, order form)",
+        "5. Futures Screen (Leverage 1x-20x slider, Cross/Isolated mode, Positions)",
+        "6. Wallet Screen (Donut asset allocation chart, balances list, history)",
+        "7. Auth Screen (Login / Signup / Forgot Password)",
+        "8. Side Navigation Drawer"
+      ]
+    }
+  },
+  "testing_and_accessibility": {
+    "data_testid_rule": "ALL interactive elements (buttons, inputs, tabs, leverage sliders, rows, modals) MUST have descriptive data-testid attributes in kebab-case format (e.g. data-testid='spot-buy-submit-button', data-testid='futures-leverage-slider', data-testid='admin-approve-kyc-button').",
+    "contrast_rule": "Never use transparent backgrounds for dropdowns, overlays, or headers. Use backdrop-blur-md with solid slate background bg-[#0b0f19]/90."
+  },
+  "instructions_to_main_agent": [
+    "Strictly follow the dark slate #0b0f19 aesthetic with #f59e0b orange accents, #10b981 bullish green, and #ef4444 bearish red.",
+    "Use JavaScript / React (.js/.jsx) for all components.",
+    "Provide a seamlessly toggleable header menu allowing users to switch between: Landing Page, Spot Trading, Futures Trading, Markets Hub, User Settings, Enterprise Admin Panel, and Interactive Mobile App Frames.",
+    "Ensure all numbers (prices, PnL, order book depth, leverage multiplier) dynamically re-calculate on user interactions.",
+    "Include full data-testid attributes on every interactive button, input, tab, slider, and table row."
+  ]
+},
+overwrite:true,path:
