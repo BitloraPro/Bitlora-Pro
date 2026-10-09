@@ -15,7 +15,7 @@ Build a complete, production-grade crypto exchange named "Bitlora Pro" (dark #0b
 ## Implemented (2026-10-09)
 - All modules above, end to end. Backend 48/48 tests pass; frontend smoke flows pass (iteration_1)
 
-- 2026-10-09: Real email delivery (Emergent managed Resend) for password reset links and email verification codes (backend/emailer.py)
+- 2026-10-09: Real email delivery (Bitlora Pro managed Resend) for password reset links and email verification codes (backend/emailer.py)
 
 ## Known limitations
 - Deposits are instant paper credits; withdrawals go to an admin approval queue (no on-chain broadcast)

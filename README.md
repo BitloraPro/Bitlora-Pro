@@ -27,8 +27,8 @@ yarn start                  # http://localhost:3000
 `emergentintegrations` in requirements.txt comes from the Emergent package index. Install it with
 `pip install emergentintegrations --extra-index-url https://d33sy5i8bnduwe.cloudfront.net/simple/` or remove it, because the app does not import it.
 
-Email (password reset and verification codes) goes through Emergent's managed email proxy (`backend/emailer.py`).
-Outside Emergent, replace `send_email()` with your own provider (Resend, SendGrid or SMTP).
+Email (password reset and verification codes) goes through Bitlora Pro's managed email proxy (`backend/emailer.py`).
+Outside Bitlora Pro, replace `send_email()` with your own provider (Resend, SendGrid or SMTP).
 
 ## Routes
 - `/` landing, `/markets`, `/trade/:symbol`, `/futures/:symbol`, `/account/:section`

@@ -179,7 +179,7 @@ class TestCookieAuth:
             line = next((h for h in set_cookie_headers if h.startswith(name + "=")), "")
             assert "HttpOnly" in line, f"{name} missing HttpOnly: {line}"
             assert "Secure" in line, f"{name} missing Secure: {line}"
-            # NOTE: Backend code sets SameSite=Lax, but Emergent's K8s ingress rewrites
+            # NOTE: Backend code sets SameSite=Lax, but Bitlora Pro's K8s ingress rewrites
             # the Set-Cookie to SameSite=None; Partitioned so cross-site preview cookies
             # work. We assert *some* SameSite attribute is present.
             assert "samesite=" in line.lower(), f"{name} missing SameSite: {line}"
