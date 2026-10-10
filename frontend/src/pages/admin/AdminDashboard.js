@@ -58,11 +58,17 @@ function TopMarkets() {
       <div className="flex justify-between items-center mb-3"><div className="font-semibold">Top Markets by Volume</div>
         <div className="flex gap-1">{["spot", "futures"].map((k) => <button key={k} data-testid={`top-markets-${k}`} onClick={() => setM(k)} className={cn("tab-pill capitalize", m === k && "bg-[#f59e0b] text-[#0b0f19]")}>{k}</button>)}</div></div>
       {data.length ? data.slice(0, 6).map((r, i) => (
-        <div key={r.symbol} className="grid grid-cols-[20px_1fr_auto_64px_80px] gap-3 items-center py-2 text-sm border-b border-[#1a2232] last:border-0">
+        <div key={r.symbol} className="grid grid-cols-[20px_minmax(0,1fr)_auto_auto] gap-2 items-center py-2 text-sm border-b border-[#1a2232] last:border-0">
           <span className="text-gray-500 font-num">{i + 1}</span>
-          <span className="flex items-center gap-2"><CoinIcon symbol={r.symbol.replace("USDT", "")} className="w-5 h-5" />{r.symbol.replace("USDT", "/USDT")}</span>
-          <span className="font-num text-xs">{fmtPrice(r.price)}</span><Change value={r.change} className="text-xs" />
-          <span className="font-num text-xs text-right">{fmtCompact(r.platform_volume)}</span>
+          <span className="flex items-center gap-2 min-w-0">
+            <CoinIcon symbol={r.symbol.replace("USDT", "")} className="w-5 h-5 shrink-0" />
+            <span className="min-w-0">
+              <span className="block truncate">{r.symbol.replace("USDT", "/USDT")}</span>
+              <span className="block truncate font-num text-[11px] text-gray-500">{fmtPrice(r.price)}</span>
+            </span>
+          </span>
+          <Change value={r.change} className="text-xs whitespace-nowrap" />
+          <span className="font-num text-xs text-right whitespace-nowrap">{fmtCompact(r.platform_volume)}</span>
         </div>
       )) : <Empty text="No trading activity yet" />}
     </div>
