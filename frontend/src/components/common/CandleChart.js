@@ -25,6 +25,7 @@ export default function CandleChart({ symbol, interval, height = 420, compact = 
   const { data } = useKlines(symbol, interval);
 
   useEffect(() => {
+    if (!ref.current) return undefined;
     const chart = createChart(ref.current, {
       height,
       localization: { locale: "en-US" },
@@ -41,8 +42,12 @@ export default function CandleChart({ symbol, interval, height = 420, compact = 
     chart.priceScale("vol").applyOptions({ scaleMargins: { top: 0.82, bottom: 0 } });
     chartRef.current = chart;
     seriesRef.current = { candles, volume };
-    const ro = new ResizeObserver(() => chart.applyOptions({ width: ref.current.clientWidth }));
-    ro.observe(ref.current);
+    const el = ref.current;
+    const ro = new ResizeObserver(() => {
+      if (!ref.current) return;
+      chart.applyOptions({ width: ref.current.clientWidth });
+    });
+    ro.observe(el);
     return () => { ro.disconnect(); chart.remove(); };
   }, [height, compact]);
 
