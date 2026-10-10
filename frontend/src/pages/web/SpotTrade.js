@@ -67,7 +67,7 @@ export default function SpotTrade() {
         <StatItem label="24h Volume (USDT)" value={fmtCompact(t?.quote_volume, "")} />
         <Star className="ml-auto w-5 h-5 text-[#f59e0b]" />
       </div>
-      <div className="grid grid-cols-1 xl:grid-cols-[1fr_320px] gap-2">
+      <div className="grid grid-cols-1 xl:grid-cols-[1fr_290px_340px] gap-2">
         <div className="panel overflow-hidden">
           <div className="flex items-center justify-between px-3 py-2 border-b border-[#1f2937]">
             <IntervalTabs value={interval} onChange={setInterval} />
@@ -81,11 +81,9 @@ export default function SpotTrade() {
           </div>
           {side === "book" ? <OrderBook symbol={symbol} rows={12} onPick={setPicked} /> : <RecentTrades symbol={symbol} rows={28} />}
         </div>
-      </div>
-      <div className="grid grid-cols-1 xl:grid-cols-[1fr_520px] gap-2">
-        <BottomTabs tabs={[["open", "Open Orders", () => <SpotOrdersTable status="open" />], ["history", "Order History", () => <SpotOrdersTable status="history" />], ["trades", "Trade History", () => <TradeHistoryTable market="spot" />], ["assets", "Assets", AssetsTab]]} />
         <div className="panel p-4"><SpotOrderForm symbol={symbol} picked={picked} /></div>
       </div>
+      <BottomTabs tabs={[["open", "Open Orders", () => <SpotOrdersTable status="open" />], ["history", "Order History", () => <SpotOrdersTable status="history" />], ["trades", "Trade History", () => <TradeHistoryTable market="spot" />], ["assets", "Assets", AssetsTab]]} />
     </div>
   );
 }
