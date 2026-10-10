@@ -34,12 +34,27 @@ function TabBar() {
   );
 }
 
-export function PhoneFrame({ initial, screens, label, sub, testid }) {
+function useScreenState(initial, screens) {
   const [screen, setScreen] = useState(initial);
   const [symbol, setSymbol] = useState("BTCUSDT");
   const go = (s, sym) => { if (sym) setSymbol(sym); setScreen(s); };
-  const Screen = screens[screen];
-  const withTabs = TABS.some(([k]) => k === screen);
+  return { screen, symbol, go, Screen: screens[screen], withTabs: TABS.some(([k]) => k === screen) };
+}
+
+export function PhoneApp({ initial, screens }) {
+  const { screen, symbol, go, Screen, withTabs } = useScreenState(initial, screens);
+  return (
+    <div className="h-[100dvh] w-full max-w-[520px] mx-auto bg-[#0b0f19] flex flex-col overflow-hidden" data-testid="phone-app">
+      <PhoneCtx.Provider value={{ screen, go, symbol }}>
+        <div className="flex-1 overflow-y-auto no-scrollbar relative" key={screen}><div className="rise" style={{ animationDuration: ".35s" }}><Screen /></div></div>
+        {withTabs && <TabBar />}
+      </PhoneCtx.Provider>
+    </div>
+  );
+}
+
+export function PhoneFrame({ initial, screens, label, sub, testid }) {
+  const { screen, symbol, go, Screen, withTabs } = useScreenState(initial, screens);
   return (
     <figure className="flex flex-col items-center gap-4" data-testid={testid}>
       <div className="relative w-[300px] h-[630px] rounded-[48px] p-[10px] bg-gradient-to-b from-[#3a3f4a] via-[#1d2129] to-[#2b2f37] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9),0_0_0_1px_#4b5160_inset]">

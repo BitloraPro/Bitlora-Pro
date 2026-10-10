@@ -11,11 +11,19 @@ import FuturesTrade from "@/pages/web/FuturesTrade";
 import Account from "@/pages/web/Account";
 import { ForgotPage, LoginPage, RegisterPage, ResetPage } from "@/pages/web/AuthPages";
 import MobileShowcase from "@/pages/mobile/MobileShowcase";
+import MobileApp from "@/pages/mobile/MobileApp";
 import AdminDashboard from "@/pages/admin/AdminDashboard";
 import AdminUsers from "@/pages/admin/AdminUsers";
 import AdminTreasury from "@/pages/admin/AdminTreasury";
 import AdminRisk from "@/pages/admin/AdminRisk";
 import { AdminSecurity, AdminSettings } from "@/pages/admin/AdminSettings";
+
+// Phones opening the site root land in the app-style UI; add ?web=1 to stay on the web site.
+function PhoneHomeRedirect({ children }) {
+  const isPhone = window.matchMedia("(max-width: 767px)").matches;
+  const wantsWeb = new URLSearchParams(window.location.search).has("web");
+  return isPhone && !wantsWeb ? <Navigate to="/app" replace /> : children;
+}
 
 function App() {
   return (
@@ -23,7 +31,7 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route element={<WebLayout />}>
-            <Route path="/" element={<Landing />} />
+            <Route path="/" element={<PhoneHomeRedirect><Landing /></PhoneHomeRedirect>} />
             <Route path="/markets" element={<Markets />} />
             <Route path="/trade/:symbol" element={<SpotTrade />} />
             <Route path="/trade" element={<Navigate to="/trade/BTCUSDT" replace />} />
@@ -36,6 +44,7 @@ function App() {
             <Route path="/reset-password" element={<ResetPage />} />
           </Route>
           <Route path="/mobile" element={<MobileShowcase />} />
+          <Route path="/app" element={<MobileApp />} />
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />
             <Route path="users" element={<AdminUsers />} />

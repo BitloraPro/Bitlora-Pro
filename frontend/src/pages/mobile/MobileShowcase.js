@@ -8,7 +8,7 @@ import { MForgot, MLogin, MMenu, MSignup, MWallet } from "./AccountScreens";
 import { BACKEND_URL } from "@/lib/api";
 import { HERO_IMG } from "@/lib/assets";
 
-const SCREENS = { welcome: Welcome, home: MHome, market: MMarket, trade: MTrade, futures: MFutures, wallet: MWallet, login: MLogin, signup: MSignup, menu: MMenu, forgot: MForgot };
+export const SCREENS = { welcome: Welcome, home: MHome, market: MMarket, trade: MTrade, futures: MFutures, wallet: MWallet, login: MLogin, signup: MSignup, menu: MMenu, forgot: MForgot };
 const FRAMES = [
   ["welcome", "01. Welcome / Onboarding", "Strong first impression"], ["home", "02. Home Page", "Login, signup, top markets"], ["market", "03. Market Page", "Tabs, filters and market list"],
   ["trade", "04. Spot Trade", "Chart, order book, buy/sell"], ["futures", "05. Futures", "Leverage, positions, orders"], ["wallet", "06. Wallet", "Balances, deposit, withdraw"],
