@@ -44,7 +44,7 @@ function useScreenState(initial, screens) {
 export function PhoneApp({ initial, screens }) {
   const { screen, symbol, go, Screen, withTabs } = useScreenState(initial, screens);
   return (
-    <div className="h-[100dvh] w-full max-w-[520px] mx-auto bg-[#0b0f19] flex flex-col overflow-hidden" data-testid="phone-app">
+    <div className="fixed inset-0 max-w-[520px] mx-auto bg-[#0b0f19] flex flex-col overflow-hidden" data-testid="phone-app">
       <PhoneCtx.Provider value={{ screen, go, symbol }}>
         <div className="flex-1 overflow-y-auto no-scrollbar relative" key={screen}><div className="rise" style={{ animationDuration: ".35s" }}><Screen /></div></div>
         {withTabs && <TabBar />}
