@@ -74,10 +74,12 @@ export function MHome() {
           <img src={MOBILE_COIN_IMG} alt="" className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-80" />
           <div className="relative p-3"><div className="text-base font-bold leading-tight">Trade Global<br />Trade Smarter</div><div className="text-[10px] text-gray-400 mt-1.5 max-w-[150px]">Access {data.length}+ cryptocurrencies with low fees and live order books.</div></div>
         </div>
+        {user && (
         <div className="grid grid-cols-2 gap-2">
           <button data-testid="m-home-deposit" onClick={() => (user ? dialogs.open("deposit") : go("login"))} className="h-12 rounded-xl bg-[#1d4ed8] text-white text-left px-3"><div className="text-xs font-semibold">Deposit</div><div className="text-[9px] opacity-80">Fund your account</div></button>
           <button data-testid="m-home-withdraw" onClick={() => (user ? dialogs.open("withdraw") : go("login"))} className="h-12 rounded-xl bg-[#b45309] text-white text-left px-3"><div className="text-xs font-semibold">Withdraw</div><div className="text-[9px] opacity-80">Withdraw anytime</div></button>
         </div>
+        )}
         <div className="flex justify-between items-center"><div className="text-sm font-semibold">Top 9 Markets</div><button onClick={() => go("market")} className="text-[11px] text-gray-400">View All →</button></div>
         <div className="grid grid-cols-3 gap-2">{top.slice(0, 3).map((t) => <MiniCard key={t.symbol} t={t} spark={spark[t.symbol]} onClick={() => go("trade", t.symbol)} />)}</div>
         <div>
