@@ -94,9 +94,12 @@ def decode_token(token: str, kind: str) -> dict:
     return payload
 
 
+COOKIE_SECURE = os.environ.get("COOKIE_SECURE", "true").strip().lower() not in ("0", "false", "no")
+
+
 def set_auth_cookies(response: Response, user_id: str, email: str) -> str:
     access = create_access_token(user_id, email)
-    opts = {"httponly": True, "secure": True, "samesite": "lax", "path": "/"}
+    opts = {"httponly": True, "secure": COOKIE_SECURE, "samesite": "lax", "path": "/"}
     response.set_cookie("access_token", access, max_age=int(ACCESS_TTL.total_seconds()), **opts)
     response.set_cookie("refresh_token", create_refresh_token(user_id), max_age=int(REFRESH_TTL.total_seconds()), **opts)
     return access
@@ -113,7 +116,7 @@ async def is_revoked(payload: dict) -> bool:
 
 def clear_auth_cookies(response: Response):
     for name in ("access_token", "refresh_token"):
-        response.delete_cookie(name, path="/", secure=True, httponly=True, samesite="lax")
+        response.delete_cookie(name, path="/", secure=COOKIE_SECURE, httponly=True, samesite="lax")
 
 
 async def get_config() -> dict:
